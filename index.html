@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kugiliny J.A.J | My Portfolio</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0d0f17;
+            color: #e4e6eb;
+        }
+
+        /* NAVBAR */
+        header {
+            width: 100%;
+            padding: 20px 10%;
+            position: fixed;
+            top: 0;
+            background: rgba(20, 22, 33, 0.65);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #6d8cff;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li {
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #dfe2f3;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #6d8cff;
+        }
+
+        /* HOME */
+        #home {
+            height: 100vh;
+            padding: 0 10%;
+            display: flex;
+            align-items: center;
+        }
+
+        .home-content h1 {
+            font-size: 3.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .home-content h1 span {
+            color: #6d8cff;
+        }
+
+        .home-content p {
+            max-width: 580px;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: #b6b9c9;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 28px;
+            background: #6d8cff;
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #5672e9;
+        }
+
+        /* SECTION TITLES */
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+            color: #6d8cff;
+        }
+
+        /* ABOUT */
+        #about {
+            padding: 100px 10%;
+        }
+
+        #about .text {
+            max-width: 900px;
+            margin: auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            color: #b6b9c9;
+        }
+
+        /* SKILLS */
+        #skills {
+            padding: 100px 10%;
+            background: #11131d;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            background: #161922;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.35);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            background: #1b1f2c;
+            border-color: #6d8cff;
+        }
+
+        /* PROJECTS */
+        #projects {
+            padding: 100px 10%;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #161922;
+            padding: 25px;
+            border-radius: 14px;
+            border-left: 6px solid #6d8cff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+        }
+
+        /* SERVICES */
+        #services {
+            padding: 100px 10%;
+            background: #11131d;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #161922;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.35);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #6d8cff;
+            box-shadow: 0 8px 30px rgba(109,140,255,0.3);
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+            color: #6d8cff;
+        }
+
+        .service-card p {
+            color: #b6b9c9;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* CONTACT */
+        #contact {
+            padding: 100px 10%;
+            text-align: center;
+            background: #0d0f17;
+        }
+
+        #contact p {
+            margin: 8px 0;
+            font-size: 1.1rem;
+            color: #b6b9c9;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 20px;
+            background: #6d8cff;
+            text-align: center;
+            color: #fff;
+            margin-top: 40px;
+        }
+
+        /* SCROLL ANIMATION */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 1s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+            <div class="logo">KUGILINY J.A.J</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section id="home">
+        <div class="home-content reveal">
+            <h1>Hello, I'm <span>Kugiliny</span></h1>
+            <p>Software developer passionate about creating modern applications using Java, Python, SQL, PHP, JavaScript, HTML, CSS, and smart automation technologies.</p>
+            <a href="#contact" class="btn">Hire Me</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2 class="section-title reveal">About Me</h2>
+        <p class="text reveal">
+            I am Jesly Anton Jeyarasa (Kugiliny), having completed my <b>HND in Computing (Software Engineering) with Distinction Grade</b> at BCAS Campus, Jaffna, and currently pursuing <b>BSc Hons Software Engineering</b>.  
+    I specialize in software development, automation systems, and creating intelligent applications.  
+    I enjoy turning ideas into real-world digital solutions using modern programming technologies.
+        </p>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2 class="section-title reveal">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card reveal">Java</div>
+            <div class="skill-card reveal">Python</div>
+            <div class="skill-card reveal">C#</div>
+            <div class="skill-card reveal">PHP</div>
+            <div class="skill-card reveal">SQL</div>
+            <div class="skill-card reveal">HTML</div>
+            <div class="skill-card reveal">CSS</div>
+            <div class="skill-card reveal">JavaScript</div>
+            <div class="skill-card reveal">Object Detection</div>
+            <div class="skill-card reveal">Critical Thinking</div>
+            <div class="skill-card reveal">Teamwork</div>
+            <div class="skill-card reveal">Communication</div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2 class="section-title reveal">Projects</h2>
+        <div class="project-grid">
+            <div class="project-card reveal">
+                <h3>Restaurant Billing System</h3>
+                <p>Java application for automated order billing and receipt generation.</p>
+            </div>
+            <div class="project-card reveal">
+                <h3>Virtual Web Page System</h3>
+                <p>Dynamic website created using HTML, CSS, JS, PHP & MySQL.</p>
+            </div>
+            <div class="project-card reveal">
+                <h3>Sales Data Analysis App</h3>
+                <p>Python tool for data visualization and analytics.</p>
+            </div>
+            <div class="project-card reveal">
+                <h3>Flight Seat Booking System</h3>
+                <p>Java-based flight reservation and booking automation.</p>
+            </div>
+            <div class="project-card reveal">
+                <h3>Home Automation System</h3>
+                <p>Cloud-based smart home control system.</p>
+            </div>
+            <div class="project-card reveal">
+                <h3>Object Detection</h3>
+                <p>Real-time object detection using Python and AI libraries.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <h2 class="section-title reveal">My Real-World Services</h2>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <h3>Custom Software Development</h3>
+                <p>Building tailored desktop and enterprise applications using Java, C#, Python and modern development principles.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>Web Application Development</h3>
+                <p>Developing dynamic, secure and responsive web applications using HTML, CSS, JavaScript, PHP & MySQL.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>E-commerce Platform Development</h3>
+                <p>Creating complete online stores with admin dashboards, product systems, payments, and user authentication.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>Automation & AI Scripting</h3>
+                <p>Automating tasks and building Python-based AI systems including real-time object detection.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>Database Design & Optimization</h3>
+                <p>Designing SQL databases, ERD modelling, optimizing queries and building secure relational systems.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>API Development & Integration</h3>
+                <p>Building and integrating REST APIs for payment systems, SMS gateways, and modern web solutions.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>UI/UX & Mobile Prototyping</h3>
+                <p>Designing clean, modern user interfaces and app prototypes for websites and mobile apps.</p>
+            </div>
+            <div class="service-card reveal">
+                <h3>IT Support & Consulting</h3>
+                <p>Providing technical help, software installations, troubleshooting, documentation and project guidance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+   <section id="contact">
+    <h2 class="section-title reveal">Contact Me</h2>
+
+    <p>📧 Email: <b><a href="mailto:jeslykugil2018@gmail.com" style="color: #b6b9c9; text-decoration: none;">jeslykugil2018@gmail.com</a></b></p>
+    <p>📞 Phone: <b><a href="tel:+94769670887" style="color: #b6b9c9; text-decoration: none;">0769670887</a></b></p>
+    <p>📍 Location: <b>Puthukkudiyiruppu, Mullaitivu, Sri Lanka</b></p>
+
+    <a href="J.KUGILINY (CV).pdf" download class="btn">Download CV</a>
+</section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Kugiliny — All Rights Reserved
+    </footer>
+
+    <script>
+        const reveals = document.querySelectorAll(".reveal");
+
+        window.addEventListener("scroll", () => {
+            for (let i = 0; i < reveals.length; i++) {
+                const top = reveals[i].getBoundingClientRect().top;
+                if (top < window.innerHeight - 80) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
