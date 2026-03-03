@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Device Showcase | Kugiliny Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --accent-color: #C7FF3F;
+            --accent-glow: rgba(199, 255, 63, 0.4);
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --glass-bg: rgba(20, 20, 20, 0.7);
+            --glass-border: rgba(199, 255, 63, 0.2);
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Particles Background */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        header {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .back-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 40px;
+            transition: 0.3s;
+            padding: 10px 20px;
+            border: 1px solid var(--accent-color);
+            border-radius: 50px;
+        }
+
+        .back-link:hover {
+            background: var(--accent-color);
+            color: #000;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        .showcase-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 0 40px 80px;
+            flex-wrap: wrap;
+        }
+
+        /* Device Styling */
+        .device {
+            position: relative;
+            background: #1a1a1a;
+            border-radius: 20px;
+            border: 8px solid #333;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .device:hover {
+            transform: translateY(-10px);
+            border-color: #444;
+        }
+
+        .device-label {
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: 6px 16px;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            white-space: nowrap;
+        }
+
+        .iframe-wrapper {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Desktop */
+        .desktop {
+            width: 900px;
+            height: 560px;
+            border-width: 12px 12px 25px 12px;
+        }
+
+        /* Desktop base/stand */
+        .desktop::after {
+            content: '';
+            position: absolute;
+            bottom: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 20px;
+            background: #222;
+            border-radius: 0 0 10px 10px;
+        }
+
+        /* Tablet */
+        .tablet {
+            width: 450px;
+            height: 600px;
+            border-width: 25px 12px;
+        }
+
+        /* Mobile */
+        .mobile {
+            width: 320px;
+            height: 580px;
+            border-width: 40px 10px;
+            border-radius: 35px;
+        }
+
+        /* Responsive adjustments for the showcase page itself */
+        @media (max-width: 1400px) {
+            .desktop {
+                width: 700px;
+                height: 440px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .desktop {
+                width: 90%;
+                max-width: 800px;
+                height: 500px;
+            }
+
+            .showcase-container {
+                gap: 60px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <header>
+        <h1>Multi-Device <span style="color: var(--accent-color);">Showcase</span></h1>
+        <p class="subtitle">Experience the seamless responsiveness of my portfolio across every screen size, from
+            desktop performance to mobile elegance.</p>
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+    </header>
+
+    <div class="showcase-container">
+        <!-- Desktop -->
+        <div class="device desktop">
+            <span class="device-label"><i class="fas fa-desktop"></i> Desktop (1280px)</span>
+            <div class="iframe-wrapper">
+                <iframe src="index.html" title="Desktop View"></iframe>
+            </div>
+        </div>
+
+        <!-- Tablet -->
+        <div class="device tablet">
+            <span class="device-label"><i class="fas fa-tablet-alt"></i> Tablet (768px)</span>
+            <div class="iframe-wrapper">
+                <iframe src="index.html" title="Tablet View"></iframe>
+            </div>
+        </div>
+
+        <!-- Mobile -->
+        <div class="device mobile">
+            <span class="device-label"><i class="fas fa-mobile-alt"></i> Mobile (375px)</span>
+            <div class="iframe-wrapper">
+                <iframe src="index.html" title="Mobile View"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple Particle Background
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < 50; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 1,
+                    speedX: Math.random() * 0.5 - 0.25,
+                    speedY: Math.random() * 0.5 - 0.25,
+                    color: '#C7FF3F'
+                });
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                p.x += p.speedX;
+                p.y += p.speedY;
+
+                if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', init);
+        init();
+        animate();
+    </script>
+</body>
+
+</html>
