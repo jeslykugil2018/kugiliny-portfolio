@@ -17,14 +17,17 @@
 <body>
 
     <!-- Header / Nav -->
-    <nav class="container"
-        style="padding: 20px; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(5,5,5,0.8); backdrop-filter: blur(10px);">
-        <div class="logo-placeholder" style="height: 30px;"></div>
-        <div class="nav-links" style="display: flex; gap: 30px;">
-            <a href="#home">Home</a>
-            <a href="#projects">Work</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+    <nav
+        style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(5,5,5,0.8); backdrop-filter: blur(10px); min-width: 1280px;">
+        <div class="container"
+            style="padding: 20px; display: flex; justify-content: space-between; align-items: center;">
+            <div class="logo-placeholder" style="height: 30px;"></div>
+            <div class="nav-links" style="display: flex; gap: 30px;">
+                <a href="#home">Home</a>
+                <a href="#projects">Work</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
     </nav>
 
@@ -37,7 +40,7 @@
                         style="color: var(--accent-color);">Kugiliny</span></h1>
                 <p style="font-size: 1.5rem; color: var(--text-gray); margin-bottom: 40px; font-weight: 500;">Aspiring
                     Software Engineer </p>
-                <div class="hero-btns" style="display: flex; gap: 12px; flex-wrap: wrap;">
+                <div class="hero-btns" style="display: flex; gap: 12px;">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-secondary">Contact Me</a>
                     <a href="assets/Kugiliny_CV.pdf" download class="btn btn-secondary glow-border"

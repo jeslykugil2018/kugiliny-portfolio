@@ -17,11 +17,13 @@
     box-sizing: border-box;
 }
 
+html,
 body {
+    min-width: 1280px;
     background-color: var(--bg-color);
     color: var(--text-white);
     font-family: var(--font-body);
-    overflow-x: hidden;
+    overflow-x: auto;
     line-height: 1.6;
 }
 
