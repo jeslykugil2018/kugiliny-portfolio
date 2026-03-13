@@ -104,6 +104,35 @@ section {
     padding: 100px 0;
 }
 
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 150px;
+    padding-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Portrait / Mobile View - Aggressive Space Removal */
+@media (max-aspect-ratio: 13/9),
+(orientation: portrait) {
+    .hero {
+        min-height: auto;
+        padding-top: 80px;
+        padding-bottom: 0px;
+    }
+
+    .skill-bar {
+        padding: 10px 0 !important;
+    }
+
+    #projects {
+        padding-top: 10px !important;
+    }
+}
+
 /* Animations */
 @keyframes float {
     0% {
